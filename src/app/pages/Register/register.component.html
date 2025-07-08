@@ -1,0 +1,145 @@
+<div class="min-h-screen flex flex-col lg:flex-row">
+  <div
+    class="w-full lg:w-1/2 flex items-center justify-center min-h-screen p-8 sm:p-10"
+  >
+    <div class="w-full max-w-sm">
+      <h2 class="text-2xl font-bold text-blue-800 mb-6 text-center">Sign Up</h2>
+
+      <form class="space-y-4" (submit)="Register()">
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700"
+            >First Name</label
+          >
+          <input
+            [(ngModel)]="firstname"
+            name="firstname"
+            type="firstname"
+            class="w-full px-3 py-2 border border-[#2570EB] rounded-md outline-none focus:ring-2 focus:ring-blue-300 placeholder-gray-500"
+            placeholder="Enter your First Name"
+          />
+        </div>
+
+          <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700"
+            >Last Name</label
+          >
+          <input
+            [(ngModel)]="lastname"
+            name="lastname"
+            type="lastname"
+            class="w-full px-3 py-2 border border-[#2570EB] rounded-md outline-none focus:ring-2 focus:ring-blue-300 placeholder-gray-500"
+            placeholder="Enter your Last Name"
+          />
+        </div> 
+
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700"
+            >Email</label
+          >
+          <input
+            [(ngModel)]="email"
+            name="email"
+            type="email"
+            class="w-full px-3 py-2 border border-[#2570EB] rounded-md outline-none focus:ring-2 focus:ring-blue-300 placeholder-gray-500"
+            placeholder="Enter your Email"
+          />
+        </div>
+
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700"
+            >Password</label
+          >
+          <div class="relative">
+            <input
+              [type]="togglePassword ? 'text' : 'password'"
+              [(ngModel)]="password"
+              name="password"
+              class="w-full px-3 py-2 border border-[#2570EB] rounded-md outline-none focus:ring-2 focus:ring-blue-300 placeholder-gray-500"
+              placeholder="Enter Your Password"
+            />
+            <button
+              type="button"
+              class="absolute right-2 top-2 text-gray-500 border-l-2 px-2 border-[#7C7C7C]"
+              (click)="toggleVisibility()"
+            >
+              <img
+                [src]="togglePassword ? 'eye.svg' : 'eye-hidden.svg'"
+                alt="toggle visibility"
+                class="w-5 h-5"
+              />
+            </button>
+          </div>
+        </div>
+
+
+          <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700"
+            >Confirm Password</label
+          >
+          <div class="relative">
+            <input
+              [type]="toggleConfirmPassword ? 'text' : 'password'"
+              [(ngModel)]="confirmPassword"
+              name="confirmPassword"
+              class="w-full px-3 py-2 border border-[#2570EB] rounded-md outline-none focus:ring-2 focus:ring-blue-300 placeholder-gray-500"
+              placeholder="Confirm Your Password"
+            />
+            <button
+              type="button"
+              class="absolute right-2 top-2 text-gray-500 border-l-2 px-2 border-[#7C7C7C]"
+              (click)="toggleVisibilityConfirmPassword()"
+            >
+              <img
+                [src]="toggleConfirmPassword ? 'eye.svg' : 'eye-hidden.svg'"
+                alt="toggle visibility"
+                class="w-5 h-5"
+              />
+            </button>
+          </div>
+        </div>
+
+<div class="mb-4">
+  <label class="block mb-1 text-sm font-medium text-gray-700">Gender:</label>
+  <div class="flex flex-col">
+    <label class="mr-4">
+    <input class="accent-[#134995]" type="radio" name="gender" value="Male" [(ngModel)]="gender" />
+    Male
+  </label>
+  <label>
+    <input class="accent-[#134995]" type="radio" name="gender" value="Female" [(ngModel)]="gender" />
+    Female
+  </label>
+
+
+  </div>
+  
+</div>
+
+        <button
+          type="submit"
+          class="w-full font-bold bg-[#134995] text-white py-2 rounded-md hover:bg-blue-900 transition"
+        >
+          Register
+        </button>
+
+        <p class="text-sm text-[#3D354A] text-center">
+          Already have an account?
+          <a
+            routerLink="/login"
+            class="text-[#134995] font-bold underline cursor-pointer"
+          >
+            Log in here
+          </a>
+        </p>
+      </form>
+    </div>
+  </div>
+  <div
+    class="hidden lg:flex w-full lg:w-1/2 bg-blue-900 text-white flex-col items-center justify-center rounded-l-[5rem] p-10"
+  >
+    <img src="login.png" alt="Support" class="w-[70%] mb-10" />
+    <p class="text-lg text-center font-medium">
+      We're here to listen. Register now and let us help
+    </p>
+  </div>
+</div>
