@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,RouterModule],
   templateUrl: './login.component.html',
   providers: [LoginService],
 
@@ -22,6 +23,7 @@ export class LoginComponent {
   loginFailed: boolean = false;
 
   constructor(private loginService: LoginService) {}
+  
 
   login() {
     if (!this.email.trim() || !this.password.trim()) {
