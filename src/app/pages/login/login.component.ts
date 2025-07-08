@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { LoginService } from '../../services/login.service';
 import { RouterModule } from '@angular/router';
+import { LoginService } from '../../services/Login/login.service';
 
 @Component({
   selector: 'app-login',
@@ -23,8 +23,12 @@ export class LoginComponent {
   loginFailed: boolean = false;
 
   constructor(private loginService: LoginService) {}
-  
+    //  ngOnInit(){  console.log("eee")
 
+    //   this.loginService.login()
+    //  }
+
+  
   login() {
     if (!this.email.trim() || !this.password.trim()) {
      this.loginSuccess = false;
@@ -71,6 +75,7 @@ export class LoginComponent {
     }
   });
   }
+  //  ngOnInit(){  console.log("eee")}
 
   toggleVisibility() {
     this.togglePassword = !this.togglePassword;

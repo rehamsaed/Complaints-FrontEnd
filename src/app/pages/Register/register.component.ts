@@ -2,32 +2,109 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { RegisterService } from '../../services/Register/register.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [CommonModule, FormsModule,RouterModule],
   templateUrl: './register.component.html',
+  styleUrl: './register.component.css',
+  providers: [RegisterService],
+
+  
   
 })
 export class RegisterComponent {
-  firstname:string='';
-  lastname:string='';
+  firstname: string = '';
+  lastname: string = '';
   email: string = '';
   password: string = '';
-  confirmPassword:string='';
-  togglePassword: boolean = false;
-  toggleConfirmPassword:boolean=false;
+  confirmPassword: string = '';
   gender: string = '';
+// ////
+isLoading: boolean = false;
+loginSuccess: boolean = false;
+loginError: boolean = false; // ⬅️ جديد
 
-  
-Register(){
+userName: string = '';
+/////////////////////
 
-}
+  togglePassword: boolean = false;
+  toggleConfirmPassword: boolean = false;
+
+  confirmPasswordMismatch: boolean = false;
+
+  constructor(private registerService: RegisterService) {}
+
+  Register(form: any) {
+    if (form.invalid) {
+      form.control.markAllAsTouched();
+      return;
+    }
+
+    // التحقق من تطابق كلمة المرور
+    if (this.password !== this.confirmPassword) {
+      this.confirmPasswordMismatch = true;
+      return;
+    } else {
+      this.confirmPasswordMismatch = false;
+    }
+
+    const userData = {
+      firstname: this.firstname,
+      lastname: this.lastname,
+      email: this.email,
+      password: this.password,
+  gender: this.gender === 'Male' ? 1 : 2
+    };
+  this.isLoading = true;
+
+    console.log('User registered:', userData);
+
+    // هنا يمكنك استدعاء service لعمل POST للـ API
+    // this.authService.register(userData).subscribe(...);
+
+this.registerService.register(userData).subscribe({
+  next: (res:any) => {
+    console.log('✅ Registration successful', res);
+    // alert('Registration successful!');
+
+        this.isLoading = false;
+        if(res.status == 'Success'){
+      this.loginSuccess = true;
+      this.userName = this.firstname;
+         setTimeout(() => {
+        this.loginSuccess = false;
+        // this.router.navigate(['/home']); // لو حبيت تروح صفحة تانية
+      }, 2500);
+        }
+
+else{
+ this.loginError = true;
+      setTimeout(() => {
+        this.loginError = false;
+      }, 2500);}
+   
+
+  },
+  error: (err) => {
+      this.loginError = true;
+    setTimeout(() => {
+      this.loginError = false;
+    }, 2500);
+  }
+});
+  }
+
+
+
   toggleVisibility() {
     this.togglePassword = !this.togglePassword;
   }
+
   toggleVisibilityConfirmPassword() {
     this.toggleConfirmPassword = !this.toggleConfirmPassword;
   }
 }
+
