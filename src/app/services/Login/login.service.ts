@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class LoginService {
 
 
-    private readonly url = 'https://localhost:7059/api/complaint/Login';
+    private readonly url = 'https://localhost:7059/api/Login';
   constructor(private http: HttpClient) {
 
   }

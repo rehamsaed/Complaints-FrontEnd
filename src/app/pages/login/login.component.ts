@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { LoginService } from '../../services/Login/login.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class LoginComponent {
   loginSuccess: boolean = false;
   loginFailed: boolean = false;
 
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService,private router:Router) {}
     //  ngOnInit(){  console.log("eee")
 
     //   this.loginService.login()
@@ -53,13 +53,13 @@ export class LoginComponent {
       this.loginFailed = false;
       this.showEmptyFieldsAlert = false;
 
-     
-
      localStorage.setItem('token', res.token);
     localStorage.setItem('name', res.name);
 
     console.log('Token:', res.token);
     console.log('Name:', res.name);
+     setTimeout(() => this.router.navigate(['/submitComplaint'])   ,1000);
+    //  this.router.navigate(['/submitComplaint']);
     },
     error: (err) => {
      setTimeout(() => this.loginFailed = false, 1000);
