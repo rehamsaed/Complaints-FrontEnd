@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { LoginService } from '../../services/Login/login.service';
+import { HeaderComponent } from "../../Components/header/header.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule,RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, HeaderComponent],
   templateUrl: './login.component.html',
   providers: [LoginService],
 
@@ -30,6 +31,8 @@ export class LoginComponent {
 
   
   login() {
+    console.log("passsssssssssssssss",this.email);
+    console.log("passsssssssssssssss",this.password);
     if (!this.email.trim() || !this.password.trim()) {
      this.loginSuccess = false;
       this.loginFailed = false;
@@ -44,6 +47,7 @@ export class LoginComponent {
  
 
     this.loginService.login({ email: this.email, password: this.password }).subscribe({
+
     next: (res:any) => {
        this.userName = res.name;
        setTimeout(() => this.loginSuccess = false, 1000);

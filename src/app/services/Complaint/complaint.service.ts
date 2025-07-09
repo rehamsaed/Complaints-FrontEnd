@@ -6,7 +6,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ComplaintService {
 
-  private url = 'https://localhost:7059/api/Complaint';
+  private url = 'https://localhost:7059/api/Complaint/SubmitComplaint';
+  private urlGuest = 'https://localhost:7059/api/Complaint/submit-anonymous';
 
   constructor(private http: HttpClient) {}
 
@@ -18,6 +19,10 @@ export class ComplaintService {
   });
   console.log(" hi ,,, im token")
   console.log(token)
-    return this.http.post<any>(`${this.url}/SubmitComplaint`, complaintData, { headers });
+    return this.http.post<any>(`${this.url}`, complaintData, { headers });
   }
+  submitGuestComplaint(complaintData: any) {
+    return this.http.post<any>(`${this.urlGuest}`, complaintData);
+  }
+  
 }

@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { RegisterService } from '../../services/Register/register.service';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -35,7 +35,7 @@ userName: string = '';
 
   confirmPasswordMismatch: boolean = false;
 
-  constructor(private registerService: RegisterService) {}
+  constructor(private registerService: RegisterService,private router:Router) {}
 
   Register(form: any) {
     if (form.invalid) {
@@ -67,7 +67,7 @@ userName: string = '';
 
 this.registerService.register(userData).subscribe({
   next: (res:any) => {
-    console.log('✅ Registration successful', res);
+    console.log('Registration successful', res);
     // alert('Registration successful!');
 
         this.isLoading = false;
@@ -76,15 +76,17 @@ this.registerService.register(userData).subscribe({
       this.userName = this.firstname;
          setTimeout(() => {
         this.loginSuccess = false;
-        // this.router.navigate(['/home']); // لو حبيت تروح صفحة تانية
-      }, 2500);
+      }, 1000);
+    setTimeout(() => {
+   this.router.navigate(['/login']); 
+      }, 1500);
         }
 
 else{
  this.loginError = true;
       setTimeout(() => {
         this.loginError = false;
-      }, 2500);}
+      }, 1500);}
    
 
   },

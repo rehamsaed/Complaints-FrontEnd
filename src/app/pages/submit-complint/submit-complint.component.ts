@@ -14,7 +14,6 @@ templateUrl: './submit-complint.component.html',
   
 })
 export class SubmitComplintComponent {
-   isToken :boolean = false
  complaint = {
     categoryBinding: '',
     name: '',
@@ -52,7 +51,6 @@ ngOnInit(): void {
   
   if(token)
   {
-    this.isToken = true;
     this.contactServeiceService.getUserByToken().subscribe({
       next: (res) => {
         console.log('User Ingo:', res); 
@@ -113,22 +111,47 @@ ngOnInit(): void {
 
     console.log(' Complaint submitted:', this.complaint);
     // alert('Complaint submitted successfully!');
+    const token = localStorage.getItem('token'); 
+if(token)
+{
 
-     this.complaintService.submitComplaint(this.complaint).subscribe({
-      next: (res) => {
-        console.log('Complaint submitted successfully', res);
-        if(res.status== "success"){
-          //success
-        }
-        else{
-          //fail
-        }
+  this.complaintService.submitComplaint(this.complaint).subscribe({
+    next: (res) => {
+      console.log('Complaint submitted successfully', res);
+      // if(res.status== "success"){
+      //   //success
+      //   console.log("guest success",res);
+        
+      // }
+      // else{
+         
+      //   }
       },
       error: (err) => {
         console.error('Failed to submit complaint:', err);
       }
     });
+    
+  }
+  else
+  {
 
+    this.complaintService.submitGuestComplaint(this.complaint).subscribe({
+    next: (res) => {
+      console.log('Complaint submitted guest successfully', res);
+      if(res.status== "success"){
+        //success
+      }
+        else{
+          //fail
+        }
+      },
+      error: (err) => {
+        console.error('Failed to submit guest complaint:', err);
+      }
+    });
+    
+  }
 
  
 
