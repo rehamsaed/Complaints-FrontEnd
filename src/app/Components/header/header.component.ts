@@ -1,11 +1,11 @@
 import { routes } from './../../app.routes';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink,CommonModule],
+  imports: [RouterLink,CommonModule,RouterModule],
   templateUrl: './header.component.html',
 
 })

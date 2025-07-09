@@ -4,12 +4,14 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/Register/register.component';
 import { SubmitComplintComponent } from './pages/submit-complint/submit-complint.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'submitComplaint', component: SubmitComplintComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
 
 //   { path: '', redirectTo: 'login', pathMatch: 'full' },
  
