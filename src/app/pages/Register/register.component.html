@@ -115,7 +115,7 @@
               #passwordRef="ngModel"
               class="w-full px-3 py-2 border border-[#2570EB] rounded-md outline-none placeholder-gray-400"
               placeholder="Enter Your Password" />
-            <button type="button" class="absolute right-2 top-2" (click)="toggleVisibility()">
+            <button type="button" class="absolute right-2 top-2 border-l-2 px-2 border-[#7C7C7C]" (click)="toggleVisibility()">
               <img [src]="togglePassword ? 'eye.svg' : 'eye-hidden.svg'" class="w-5 h-5" />
             </button>
           </div>
@@ -129,7 +129,7 @@
 
         <!-- Confirm Password -->
         <div>
-          <label class="block mb-1 text-sm font-medium text-gray-700">Confirm Password</label>
+          <label class="block mb-1 text-sm font-medium text-gray-700 ">Confirm Password</label>
           <div class="relative">
             <input
               [type]="toggleConfirmPassword ? 'text' : 'password'"
@@ -139,7 +139,7 @@
               #confirmPasswordRef="ngModel"
               class="w-full px-3 py-2 border border-[#2570EB] rounded-md outline-none placeholder-gray-400"
               placeholder="Confirm Your Password" />
-            <button type="button" class="absolute right-2 top-2" (click)="toggleVisibilityConfirmPassword()">
+            <button type="button" class="absolute right-2 top-2 border-l-2 px-2 border-[#7C7C7C]" (click)="toggleVisibilityConfirmPassword()">
               <img [src]="toggleConfirmPassword ? 'eye.svg' : 'eye-hidden.svg'" class="w-5 h-5" />
             </button>
           </div>
@@ -156,10 +156,10 @@
           <label class="block mb-1 text-sm font-medium text-gray-700">Gender:</label>
           <div class="flex flex-row">
             <label style="margin-right: 10%;">
-              <input type="radio" name="gender" [(ngModel)]="gender" value="Male" required #genderRef="ngModel" /> Male
+              <input class="accent-blue-700" type="radio" name="gender" [(ngModel)]="gender" value="Male" required #genderRef="ngModel" /> Male
             </label>
             <label>
-              <input type="radio" name="gender" [(ngModel)]="gender" value="Female" /> Female
+              <input  class="accent-blue-700"  type="radio" name="gender" [(ngModel)]="gender" value="Female" /> Female
             </label>
           </div>
           <div *ngIf="genderRef.invalid && form.submitted" class="text-red-600 text-sm">

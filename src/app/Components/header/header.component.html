@@ -6,11 +6,26 @@
       <span class="text-blue-800 font-semibold text-lg">Complaint Central</span>
     </div>
 
+<nav class="hidden lg:flex gap-6 text-gray-700">
+  <a
+    routerLink="/"
+    routerLinkActive="text-blue-800 font-semibold border-b-2 border-blue-800 pb-1"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="hover:text-blue-800"
+  >
+    Home
+  </a>
+  
+  <a
+    routerLink="/submit"
+    routerLinkActive="text-blue-800 font-semibold border-b-2 border-blue-800 pb-1"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="hover:text-blue-800"
+  >
+    Submit Complaint
+  </a>
+</nav>
 
-    <nav class="hidden lg:flex gap-6 text-gray-700">
-      <a routerLink="/" class="text-blue-800 font-semibold border-b-2 border-blue-800 pb-1">Home</a>
-      <a routerLink="/submit" class="hover:text-blue-800">Submit Complaint</a>
-    </nav>
 
     <div class="hidden lg:flex gap-2">
       <a routerLink="/login">

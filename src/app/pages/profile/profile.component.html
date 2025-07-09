@@ -1,0 +1,219 @@
+<app-header></app-header>
+<div class="flex flex-col lg:flex-row gap-6 p-4 sm:p-8">
+
+  <div class="w-full lg:w-2/3 flex justify-center">
+    <div class="w-full max-w-md">
+      <h2 class="text-2xl font-bold text-blue-800 mb-6 text-center">My Profile</h2>
+
+      <form class="space-y-4">
+     
+        <div class="hidden lg:flex flex-col items-center justify-center mb-4">
+          <div class="relative w-32 h-32 mb-4">
+            <img
+              [src]="selectedImage || 'defaltimage.svg'"
+              alt="Profile"
+              class="w-full h-full object-cover rounded-full border-4 border-white shadow-md"
+            />
+          </div>
+          <div class="flex gap-4 items-center">
+            <label class="cursor-pointer flex items-center gap-2 bg-blue-800 text-white px-4 py-2 rounded font-semibold">
+              <img src="edit-icon.svg" alt="Edit" class="w-5 h-5" />
+              Edit
+              <input type="file" (change)="onFileSelected($event)" accept="image/*" class="hidden" />
+            </label>
+            <button
+              type="button"
+              (click)="deleteImage()"
+              class="flex items-center gap-2 border border-blue-800 text-blue-800 px-4 py-2 rounded font-semibold"
+            >
+              <img src="trash.svg" alt="Delete" class="w-5 h-5" />
+              Delete
+            </button>
+          </div>
+        </div>
+
+
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700">First Name</label>
+          <input [(ngModel)]="firstname" name="firstname" type="text" required minlength="3" maxlength="50"
+            pattern="^[^\d]*$" class="w-full px-3 py-2 border border-[#2570EB] rounded-md placeholder-gray-400"
+            placeholder="Enter your First Name" />
+        </div>
+
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700">Last Name</label>
+          <input [(ngModel)]="lastname" name="lastname" type="text" required minlength="3" maxlength="50"
+            pattern="^[^\d]*$" class="w-full px-3 py-2 border border-[#2570EB] rounded-md placeholder-gray-400"
+            placeholder="Enter your Last Name" />
+        </div>
+
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700">Email</label>
+          <input [(ngModel)]="email" name="email" type="email" required maxlength="100"
+            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            class="w-full px-3 py-2 border border-[#2570EB] rounded-md placeholder-gray-400"
+            placeholder="Enter your Email" />
+        </div>
+
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700">Gender:</label>
+          <div class="flex flex-row gap-6">
+            <label>
+              <input class="accent-blue-700 mr-1" type="radio" name="gender" [(ngModel)]="gender" value="Male"
+                required />
+              Male
+            </label>
+            <label>
+              <input class="accent-blue-700 mr-1" type="radio" name="gender" [(ngModel)]="gender" value="Female" />
+              Female
+            </label>
+          </div>
+        </div>
+
+    
+        <div class="flex justify-center items-center">
+          <button
+            type="submit"
+            class="w-full font-bold bg-[#134995] text-white py-2 rounded-md hover:bg-blue-900 transition flex items-center justify-center gap-2"
+          >
+            <img src="edit-icon.svg" alt="" class="w-5 h-5" />
+            Edit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  
+  <div class="hidden lg:block w-full lg:w-2/3 mt-10">
+    <img class="w-full h-auto" src="edit-profile.svg" alt="Edit Profile Illustration" />
+  </div>
+</div>
+
+<div class="w-full flex justify-center px-4 sm:px-8 pt-10">
+  <div class="w-full max-w-7xl">
+    <h2 class="text-2xl font-bold text-blue-800 mb-6 pl-2 sm:pl-12">My Complaints</h2>
+
+    <div class="space-y-6 px-2 sm:px-6 lg:px-12">
+
+
+
+
+<div class="relative flex flex-col bg-white border border-gray-300 rounded-lg p-4 sm:p-6 shadow-sm">
+
+  <button
+    class="absolute top-4 right-4 bg-blue-800 hover:bg-blue-900 rounded-full w-10 h-10 flex items-center justify-center transition duration-300"
+  >
+    <img src="delete-complaint.svg" alt="Delete" class="w-6 h-6" />
+  </button>
+
+
+  <div class="flex gap-4 w-full">
+    <img src="defaltimage.svg" alt="User" class="w-10 h-10 rounded-full border" />
+    
+    <div class="text-sm text-gray-700 leading-relaxed w-50">
+      <p class="font-bold text-gray-800 mb-1">Reham Saeed</p>
+      <div class="sm:w-[20px] lg:w-[1000px]">
+<p class="max-w-full sm:max-w-[10px] md:max-w-[500px] lg:max-w-[1500px]">
+        I would like to report that for the past two weeks, we have been experiencing frequent water cuts in our area,
+        especially during the morning hours. The interruptions are affecting daily activities such as cooking, cleaning,
+        and personal hygiene. The issue seems to be happening across multiple buildings in our block, and the water
+        pressure is also very low when the supply resumes.
+      </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="relative flex flex-col bg-white border border-gray-300 rounded-lg p-4 sm:p-6 shadow-sm">
+
+  <button
+    class="absolute top-4 right-4 bg-blue-800 hover:bg-blue-900 rounded-full w-10 h-10 flex items-center justify-center transition duration-300"
+  >
+    <img src="delete-complaint.svg" alt="Delete" class="w-6 h-6" />
+  </button>
+
+
+  <div class="flex gap-4 w-full">
+    <img src="defaltimage.svg" alt="User" class="w-10 h-10 rounded-full border" />
+    
+    <div class="text-sm text-gray-700 leading-relaxed w-50">
+      <p class="font-bold text-gray-800 mb-1">Reham Saeed</p>
+      <div class="sm:w-[20px] lg:w-[1000px]">
+<p class="max-w-full sm:max-w-[10px] md:max-w-[500px] lg:max-w-[1500px]">
+        I would like to report that for the past two weeks, we have been experiencing frequent water cuts in our area,
+        especially during the morning hours. The interruptions are affecting daily activities such as cooking, cleaning,
+        and personal hygiene. The issue seems to be happening across multiple buildings in our block, and the water
+        pressure is also very low when the supply resumes.
+      </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="relative flex flex-col bg-white border border-gray-300 rounded-lg p-4 sm:p-6 shadow-sm">
+
+  <button
+    class="absolute top-4 right-4 bg-blue-800 hover:bg-blue-900 rounded-full w-10 h-10 flex items-center justify-center transition duration-300"
+  >
+    <img src="delete-complaint.svg" alt="Delete" class="w-6 h-6" />
+  </button>
+
+
+  <div class="flex gap-4 w-full">
+    <img src="defaltimage.svg" alt="User" class="w-10 h-10 rounded-full border" />
+    
+    <div class="text-sm text-gray-700 leading-relaxed w-50">
+      <p class="font-bold text-gray-800 mb-1">Reham Saeed</p>
+      <div class="sm:w-[20px] lg:w-[1000px]">
+<p class="max-w-full sm:max-w-[10px] md:max-w-[500px] lg:max-w-[1500px]">
+        I would like to report that for the past two weeks, we have been experiencing frequent water cuts in our area,
+        especially during the morning hours. The interruptions are affecting daily activities such as cooking, cleaning,
+        and personal hygiene. The issue seems to be happening across multiple buildings in our block, and the water
+        pressure is also very low when the supply resumes.
+      </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="relative flex flex-col bg-white border border-gray-300 rounded-lg p-4 sm:p-6 shadow-sm">
+
+  <button
+    class="absolute top-4 right-4 bg-blue-800 hover:bg-blue-900 rounded-full w-10 h-10 flex items-center justify-center transition duration-300"
+  >
+    <img src="delete-complaint.svg" alt="Delete" class="w-6 h-6" />
+  </button>
+
+
+  <div class="flex gap-4 w-full">
+    <img src="defaltimage.svg" alt="User" class="w-10 h-10 rounded-full border" />
+    
+    <div class="text-sm text-gray-700 leading-relaxed w-50">
+      <p class="font-bold text-gray-800 mb-1">Reham Saeed</p>
+      <div class="sm:w-[20px] lg:w-[1000px]">
+<p class="max-w-full sm:max-w-[10px] md:max-w-[500px] lg:max-w-[1500px]">
+        I would like to report that for the past two weeks, we have been experiencing frequent water cuts in our area,
+        especially during the morning hours. The interruptions are affecting daily activities such as cooking, cleaning,
+        and personal hygiene. The issue seems to be happening across multiple buildings in our block, and the water
+        pressure is also very low when the supply resumes.
+      </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+      
+      
+
+      <div class="flex justify-center pt-4 mb-10">
+        <button class="bg-blue-800 hover:bg-blue-900 text-white font-semibold py-2 px-6 rounded">
+          Show More ▾
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
