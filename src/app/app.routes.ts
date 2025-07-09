@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/Register/register.component';
 import { SubmitComplintComponent } from './pages/submit-complint/submit-complint.component';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
