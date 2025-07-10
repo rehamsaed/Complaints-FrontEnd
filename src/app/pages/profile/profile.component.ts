@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from '../../Components/header/header.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from '../../Components/footer/footer.component';
 
 @Component({
   selector: 'app-profile',
-  imports: [HeaderComponent,CommonModule, FormsModule],
+  imports: [HeaderComponent,CommonModule, FormsModule,FooterComponent],
   templateUrl: './profile.component.html',
 
 })
