@@ -5,6 +5,7 @@ import { RegisterComponent } from './pages/Register/register.component';
 import { SubmitComplintComponent } from './pages/submit-complint/submit-complint.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { AboutusComponent } from './pages/aboutus/aboutus.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -12,6 +13,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'aboutUs', component: AboutusComponent },
 
 //   { path: '', redirectTo: 'login', pathMatch: 'full' },
  
